@@ -16,7 +16,7 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
+Route::get('/home', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
@@ -36,3 +36,18 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+route::get('/user',function(){
+    return view('user');
+});
+route::get('/',function(){
+    return view('layouts/home');
+});
+
+route::get('/more',function(){
+    return view('layouts/more');
+});
+
+route::get('/about',function(){
+    return view('layouts/about');
+});
